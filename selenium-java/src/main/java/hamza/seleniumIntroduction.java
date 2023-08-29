@@ -2,7 +2,6 @@ package hamza;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
 public class seleniumIntroduction {
     public static void main(String[] args) {
@@ -21,6 +20,7 @@ public class seleniumIntroduction {
                 "C:/Users/Hamza/chromedriver/chromedriver-win64/chromedriver.exe");
 
         WebDriver driver = new ChromeDriver();
+        driver.close();
 
     }
 }
