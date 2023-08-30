@@ -2,6 +2,7 @@ package hamza;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class seleniumIntroduction {
     public static void main(String[] args) {
@@ -19,7 +20,7 @@ public class seleniumIntroduction {
         // actually works
         // If it's not done then it will not work
         System.setProperty("webdriver.chrome.driver",
-                "C:/Users/Hamza/chromedriver/chromedriver-win64/chromedriver.exe");
+        "C:/Users/Hamza/chromedriver/chromedriver-win64/chromedriver.exe");
 
         WebDriver driver = new ChromeDriver();
 
@@ -35,5 +36,25 @@ public class seleniumIntroduction {
         System.out.println("Current URL is: " + currentUrl);
 
         driver.close();
+
+         // For invoking firefox driver
+        // Gecko driver is used for firefox
+        System.setProperty("webdriver.gecko.driver",
+                "C:/Users/Hamza/geckodriver/geckodriver.exe");
+        WebDriver firefoxDriver = new FirefoxDriver();
+
+        // Code to redirect to a url
+        firefoxDriver.get("https://google.com");
+
+        // To get the title of the browser and then print it
+        browserTitle = firefoxDriver.getTitle();
+        System.out.println("Browser Title is: " + browserTitle);
+
+        // To get current url
+        currentUrl = firefoxDriver.getCurrentUrl();
+        System.out.println("Current URL is: " + currentUrl);
+
+        firefoxDriver.close();
+
     }
 }
