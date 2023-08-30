@@ -5,6 +5,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class seleniumIntroduction {
     public static void main(String[] args) {
+        String browserTitle, currentUrl;
+
         // Invoking Browser
         // Webdriver methods + class
         // If we had initialized using ChromeDriver() then we would only have access to
@@ -20,7 +22,18 @@ public class seleniumIntroduction {
                 "C:/Users/Hamza/chromedriver/chromedriver-win64/chromedriver.exe");
 
         WebDriver driver = new ChromeDriver();
-        driver.close();
 
+        // Code to redirect to a url
+        driver.get("https://google.com");
+
+        // To get the title of the browser and then print it
+        browserTitle = driver.getTitle();
+        System.out.println("Browser Title is: " + browserTitle);
+
+        // To get current url
+        currentUrl = driver.getCurrentUrl();
+        System.out.println("Current URL is: " + currentUrl);
+
+        driver.close();
     }
 }
