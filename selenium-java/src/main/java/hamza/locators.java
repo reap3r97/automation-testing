@@ -6,6 +6,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class locators {
     public static void main(String[] args) {
+        String error;
+
         System.setProperty("webdriver.chrome.driver",
                 "C:/Users/Hamza/chromedriver/chromedriver-win64/chromedriver.exe");
 
@@ -22,6 +24,10 @@ public class locators {
         // Finding element by it's class and sending input through click() which will
         // click the button
         driver.findElement(By.className("signInBtn")).click();
+
+        // Using CSS selector to get text of the error message generated
+        error = driver.findElement(By.cssSelector("p.error")).getText();
+        System.out.println(error);
 
         driver.close();
     }
