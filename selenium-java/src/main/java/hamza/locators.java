@@ -1,5 +1,7 @@
 package hamza;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,6 +15,11 @@ public class locators {
 
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.rahulshettyacademy.com/locatorspractice/");
+
+        // implicit wait - adding 3 sec timeout. Asking selenium to wait if something is not showing up in the page
+        // This implicit wait works for all steps and not just one
+        // We need to time the wait accordingly with browser.close(), just so happens that if it is not then still we get error
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(6));
 
         // Now finding element by it's id
         // .SendKeys() function will send some data as input
