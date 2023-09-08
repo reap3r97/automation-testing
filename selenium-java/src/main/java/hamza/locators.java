@@ -38,6 +38,15 @@ public class locators {
         error = driver.findElement(By.cssSelector("p.error")).getText();
         System.out.println(error);
 
+        driver.findElement(By.cssSelector("#inputUsername")).sendKeys("rahul");
+
+        // Using regex to find something present in locator for css
+        driver.findElement(By.cssSelector("input[type*='pass']")).sendKeys("rahulshettyacademy");
+        driver.findElement(By.id("chkboxOne")).click();
+
+        // Using regex to find something present in locator for xpath
+        driver.findElement(By.xpath("//button[contains(@class,'submit')]")).click();
+
         driver.close();
     }
 }
