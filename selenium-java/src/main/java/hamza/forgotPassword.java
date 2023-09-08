@@ -45,9 +45,9 @@ public class forgotPassword {
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
+
         driver.findElement(By.cssSelector(".reset-pwd-btn")).click();
 
         // Printing out the message that comes on top
