@@ -8,12 +8,17 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class forgotPassword {
     public static void main(String[] args) {
+        String infoMessage;
+
         System.setProperty("webdriver.chrome.driver",
                 "C:/Users/Hamza/chromedriver/chromedriver-win64/chromedriver.exe");
 
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.rahulshettyacademy.com/locatorspractice/");
 
+        // Adding implicit delay to wait for the info message
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(6));
+        
         // Using linkText for when links 'a' are used and have no other identifiers
         driver.findElement(By.linkText("Forgot your password?")).click();
 
@@ -30,6 +35,16 @@ public class forgotPassword {
 
         // Using indexing in CSS to get field index
         driver.findElement(By.cssSelector("input[type='text']:nth-child(3)")).sendKeys("John@rsa.com");
+
+        // Using traversing from parent to child to select locator
+        driver.findElement(By.xpath("//form/input[3]")).sendKeys("12345");
+
+        // Pressing submit
+        driver.findElement(By.cssSelector(".reset-pwd-btn")).click();
+
+        // Printing out the message that comes on top
+        infoMessage  = driver.findElement(By.cssSelector("form p")).getText();
+        System.out.println(infoMessage);
 
         driver.close();
     }
