@@ -18,7 +18,7 @@ public class forgotPassword {
 
         // Adding implicit delay to wait for the info message
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(6));
-        
+
         // Using linkText for when links 'a' are used and have no other identifiers
         driver.findElement(By.linkText("Forgot your password?")).click();
 
@@ -39,13 +39,21 @@ public class forgotPassword {
         // Using traversing from parent to child to select locator
         driver.findElement(By.xpath("//form/input[3]")).sendKeys("12345");
 
-        // Pressing submit
+        // Pressing submit. Issue arises. Single page application that's why some other
+        // element is being triggered instead of the intended one
+        // We have to wait for the new page to render. Which is the fix
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         driver.findElement(By.cssSelector(".reset-pwd-btn")).click();
 
         // Printing out the message that comes on top
-        infoMessage  = driver.findElement(By.cssSelector("form p")).getText();
+        infoMessage = driver.findElement(By.cssSelector("form p")).getText();
         System.out.println(infoMessage);
 
-        driver.close();
+        // driver.close();
     }
 }
