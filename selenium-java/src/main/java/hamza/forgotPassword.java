@@ -54,6 +54,6 @@ public class forgotPassword {
         infoMessage = driver.findElement(By.cssSelector("form p")).getText();
         System.out.println(infoMessage);
 
-        // driver.close();
+        driver.close();
     }
 }
