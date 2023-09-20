@@ -10,7 +10,7 @@ public class login {
         String successMessage;
         String name = "ham";
         String password = "rahulshettyacademy";
-               
+
         System.setProperty("webdriver.chrome.driver",
                 "C:/Users/Hamza/chromedriver/chromedriver-win64/chromedriver.exe");
 
@@ -38,7 +38,13 @@ public class login {
         successMessage = driver.findElement(By.tagName("p")).getText();
         // We need to add an assertion to make sure what we get is what we need
         Assert.assertEquals(successMessage, "You are successfully logged in.");
-        Assert.assertEquals(driver.findElement(By.cssSelector("div[class='login-container'] h2")).getText(), "Hello "+ name +",");
+        Assert.assertEquals(driver.findElement(By.cssSelector("div[class='login-container'] h2")).getText(),
+                "Hello " + name + ",");
         System.out.println(successMessage);
+
+        // Logout
+        driver.findElement(By.xpath("//*[text()='Log Out']")).click();
+
+        driver.close();
     }
 }
