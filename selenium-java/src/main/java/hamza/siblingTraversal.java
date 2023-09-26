@@ -19,6 +19,11 @@ public class siblingTraversal {
         buttonText = driver.findElement(By.xpath("//header/div/button[1]/following-sibling::button[1]")).getText();
         System.out.println(buttonText);
 
+        // Child to parent locator traversal
+        buttonText = driver.findElement(By.xpath("//header/div/button[1]/parent::div/parent::header")).getText();
+        System.out.println(".......");
+        System.out.println(buttonText);
+
         driver.quit();
     }
 }
