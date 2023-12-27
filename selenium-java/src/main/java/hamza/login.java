@@ -11,8 +11,8 @@ public class login {
         String name = "ham";
         String password = "rahulshettyacademy";
 
-        System.setProperty("webdriver.chrome.driver",
-                "C:/Users/Hamza/chromedriver/chromedriver-win64/chromedriver.exe");
+        // System.setProperty("webdriver.chrome.driver",
+                // "C:/Users/Hamza/chromedriver/chromedriver-win64/chromedriver.exe");
 
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.rahulshettyacademy.com/locatorspractice/");
