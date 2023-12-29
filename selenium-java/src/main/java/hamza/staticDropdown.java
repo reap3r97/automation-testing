@@ -8,9 +8,6 @@ import org.openqa.selenium.support.ui.Select;
 
 public class staticDropdown {
     public static void main(String[] args) throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver",
-                "C:/Users/Hamza/chromedriver/chromedriver-win64/chromedriver.exe");
-
         WebDriver driver = new ChromeDriver();
         driver.get("https://rahulshettyacademy.com/dropdownsPractise");
 
@@ -18,6 +15,7 @@ public class staticDropdown {
         WebElement staticDropdown = driver.findElement(By.id("ctl00_mainContent_DropDownListCurrency"));
         Select dropdown = new Select(staticDropdown);
 
+        // 
         // Selecting value by index
         dropdown.selectByIndex(3);
 
@@ -34,7 +32,7 @@ public class staticDropdown {
          dropdown.selectByValue("INR");
         text = dropdown.getFirstSelectedOption().getText();
         System.out.println(text);
-
+        
         driver.quit();
 
     }

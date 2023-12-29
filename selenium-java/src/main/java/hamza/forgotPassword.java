@@ -10,9 +10,6 @@ public class forgotPassword {
     public static void main(String[] args) {
         String infoMessage;
 
-        System.setProperty("webdriver.chrome.driver",
-                "C:/Users/Hamza/chromedriver/chromedriver-win64/chromedriver.exe");
-
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.rahulshettyacademy.com/locatorspractice/");
 
