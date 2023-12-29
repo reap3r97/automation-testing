@@ -8,9 +8,6 @@ public class siblingTraversal {
     public static void main(String[] args) throws InterruptedException {
         String buttonText = "";
 
-        System.setProperty("webdriver.chrome.driver",
-                "C:/Users/Hamza/chromedriver/chromedriver-win64/chromedriver.exe");
-
         WebDriver driver = new ChromeDriver();
 
         driver.get("https://www.rahulshettyacademy.com/AutomationPractice");

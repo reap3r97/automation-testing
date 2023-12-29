@@ -12,9 +12,6 @@ public class dynamicPassword {
         String password, successMessage;
         String name = "ham";
 
-        System.setProperty("webdriver.chrome.driver",
-                "C:/Users/Hamza/chromedriver/chromedriver-win64/chromedriver.exe");
-
         WebDriver driver = new ChromeDriver();
 
         // Adding implicit delay to wait for the info message
