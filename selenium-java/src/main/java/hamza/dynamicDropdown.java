@@ -13,7 +13,11 @@ public class dynamicDropdown {
 
         driver.findElement(By.xpath("//a[@value='MAA']")).click(); // this will select first element found
         Thread.sleep(1000);
-        driver.findElement(By.xpath("(//a[@value='BLR'])[2]")).click(); // selects first element found
+        // driver.findElement(By.xpath("(//a[@value='BLR'])[2]")).click(); // selects
+        // index element found
+        // ^ can also be written as
+        driver.findElement(By.xpath("//div[@id='ctl00_mainContent_ddl_destinationStation1_CTNR']//a[@value='HYD']"))
+                .click(); // selects element according to parent-child relation
 
         Thread.sleep(2000);
         driver.quit();
