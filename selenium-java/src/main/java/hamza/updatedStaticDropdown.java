@@ -9,6 +9,15 @@ public class updatedStaticDropdown {
         WebDriver driver = new ChromeDriver();
         driver.get("https://rahulshettyacademy.com/dropdownsPractise");
 
+        // Selecting checkbox
+        driver.findElement(By.cssSelector("input[id*='SeniorCitizenDiscount']")).click();
+
+        // To check if checkbox is selected or not
+        System.out.println(driver.findElement(By.cssSelector("input[id*='SeniorCitizenDiscount']")).isSelected());
+
+        // Counting number of checkboxes
+        System.out.println(driver.findElements(By.cssSelector("input[type='checkbox']")).size());
+
         // Selecting a dropdown tag
         driver.findElement(By.id("divpaxinfo")).click();
 
