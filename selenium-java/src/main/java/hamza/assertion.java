@@ -45,7 +45,7 @@ public class assertion {
         String passengerText = driver.findElement(By.id("divpaxinfo")).getText();
         System.out.println("Number of Passengers: " + passengerText);
 
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         driver.quit();
 
     }
