@@ -27,6 +27,5 @@ public class assignment1 {
 
         Thread.sleep(1000);
         driver.quit();
-
     }
 }
