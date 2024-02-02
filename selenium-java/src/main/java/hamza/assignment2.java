@@ -2,6 +2,7 @@ package hamza;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
@@ -11,25 +12,28 @@ public class assignment2 {
         WebDriver driver = new ChromeDriver();
         driver.get("https://rahulshettyacademy.com/angularpractice");
 
-        // Adding input to fields
-        driver.findElement(By.name("name")).sendKeys("Ham");
-        driver.findElement(By.name("email")).sendKeys("test@test.com");
-        driver.findElement(By.id("exampleInputPassword1")).sendKeys("abc123");
-        driver.findElement(By.id("exampleCheck1")).click();
+        driver.findElement(By.xpath("//div[@class='form-group']//input[@name='name']")).sendKeys("Ranju");
 
-        // Using Select to select option by their index
-        Select gender = new Select(driver.findElement(By.id("exampleFormControlSelect1")));
-        gender.selectByIndex(0);
+        driver.findElement(By.xpath("//div[@class='form-group']//input[@name='email']")).sendKeys("r@gmail.com");
 
-        driver.findElement(By.id("inlineRadio1")).click();
-        driver.findElement(By.name("bday")).sendKeys("12/03/1997");
-        driver.findElement(By.cssSelector(".btn-success")).click();
-       
-        String result = driver.findElement(By.cssSelector(".alert-success")).getText();
-        System.out.println("result: " + result);
-        Assert.assertTrue(true,result);
+        driver.findElement(By.xpath("//div[@class='form-group']//input[@type='password']")).sendKeys("Ran12");
 
-        Thread.sleep(2000);
+        driver.findElement(By.xpath("//div[@class='form-check']//input[@type='checkbox']")).click();
+
+        WebElement staticDropdown = driver.findElement(By.xpath("//select[@id='exampleFormControlSelect1']"));
+
+        Select dropdown = new Select(staticDropdown);
+
+        dropdown.selectByVisibleText("Female");
+
+        driver.findElement(By.xpath("//input[@value='option1']")).click();
+
+        driver.findElement(By.xpath("//input[@type='date']")).sendKeys("02/09/1994");
+
+        driver.findElement(By.xpath("//input[@type='submit']")).click();
+
+        System.out.println(driver.findElement(By.cssSelector("div[class*='alert-success']")).getText());
+        Thread.sleep(5000);
         driver.quit();
     }
 }
