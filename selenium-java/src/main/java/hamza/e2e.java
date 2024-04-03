@@ -57,7 +57,7 @@ public class e2e {
         // driver.findElement(By.xpath("//input[@value="Search"]")).click();
 
         Thread.sleep(10000);
-        // driver.quit();
+        driver.quit();
 
     }
 }
