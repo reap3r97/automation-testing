@@ -8,6 +8,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class cartItems {
@@ -18,8 +20,11 @@ public class cartItems {
 
         WebDriver driver = new ChromeDriver();
 
-        // Implicit wait code
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        // Implicit wait code .. commenting out as its not needed anymore
+        // driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+
+        // Declaring for explicit wait
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
         driver.get("https://rahulshettyacademy.com/seleniumPractise/");
 
@@ -31,8 +36,13 @@ public class cartItems {
 
         // Next page where we add promo code takes some time to load so we need to add
         // implicit/explicit wait before adding promo code
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input.promoCode")));
         driver.findElement(By.cssSelector("input.promoCode")).sendKeys(promoCode);
         driver.findElement(By.cssSelector("button.promoBtn")).click();
+
+        // Adding explicit wait here because this takes more time to load than the promo
+        // adding page
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("span.promoInfo")));
         String promoInfo = driver.findElement(By.cssSelector("span.promoInfo")).getText();
         Assert.assertEquals(promoInfo, "Code applied ..!");
 
