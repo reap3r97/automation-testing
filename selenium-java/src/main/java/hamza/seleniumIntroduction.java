@@ -20,9 +20,6 @@ public class seleniumIntroduction {
         // chrome and then add the path here like it is so that the chrome driver
         // actually works
         // If it's not done then it will not work
-        System.setProperty("webdriver.chrome.driver",
-                "C:/Users/Hamza/chromedriver/chromedriver-win64/chromedriver.exe");
-
         WebDriver driver = new ChromeDriver();
 
         // Code to redirect to a url
@@ -39,9 +36,6 @@ public class seleniumIntroduction {
         driver.close();
 
         // For invoking firefox driver
-        // Gecko driver is used for firefox
-        System.setProperty("webdriver.gecko.driver",
-                "C:/Users/Hamza/geckodriver/geckodriver.exe");
         WebDriver firefoxDriver = new FirefoxDriver();
 
         // Code to redirect to a url
@@ -56,24 +50,5 @@ public class seleniumIntroduction {
         System.out.println("Current URL is: " + currentUrl);
 
         firefoxDriver.quit();
-
-        // For invoking firefox driver
-        // Gecko driver is used for firefox
-        System.setProperty("webdriver.edge.driver",
-                "C:/Users/Hamza/edgedriver/msedgedriver.exe");
-        WebDriver edgeDriver = new EdgeDriver();
-
-        // Code to redirect to a url
-        edgeDriver.get("https://torn.com");
-
-        // To get the title of the browser and then print it
-        browserTitle = edgeDriver.getTitle();
-        System.out.println("Browser Title is: " + browserTitle);
-
-        // To get current url
-        currentUrl = edgeDriver.getCurrentUrl();
-        System.out.println("Current URL is: " + currentUrl);
-
-        edgeDriver.close();
     }
 }
